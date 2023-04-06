@@ -127,8 +127,8 @@ export default defineComponent({
 
     const inputValueChangeHandle = (e: Event) => {
       const { value } = e.target as HTMLInputElement;
-      const { maxcharacter } = props;
-      if (maxcharacter && maxcharacter > 0 && !Number.isNaN(maxcharacter)) {
+      const { allowInputOverMax, maxcharacter } = props;
+      if (!allowInputOverMax && maxcharacter && maxcharacter > 0 && !Number.isNaN(maxcharacter)) {
         const { length = 0, characters = '' } = getCharacterLength(value, maxcharacter) as {
           length: number;
           characters: string;
